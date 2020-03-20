@@ -4,7 +4,14 @@ import org.springframework.stereotype.Service;
 import com.ecomplify.eventmanagement.repositories.UserRepository;
 import com.ecomplify.eventmanagement.repositories.UserIdentifierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+
+
+import com.ecomplify.eventmanagement.exceptions.BusinessException;
 import com.ecomplify.eventmanagement.models.entities.User;
+import com.ecomplify.eventmanagement.models.entities.UserIdentifier;
+
+import com.ecomplify.eventmanagement.models.entities.User;
+
 
 @Service
 public class ApplicationBusinessService {
@@ -16,8 +23,10 @@ public class ApplicationBusinessService {
     UserIdentifierRepository userIdentifierRepo;   
 
 
-    public User checkAuthentication(String username,String password) throws Exception{
-               User usr = null;
+
+    public User checkAuthentication(String username,String password) throws BusinessException{
+          
+    	  User usr = null;
     	  UserIdentifier usrIdentifier = null;
     	  
 	      usr = userRepo.findByEmail(username);
@@ -34,8 +43,6 @@ public class ApplicationBusinessService {
 	      }   
 
       return usr;
-
-    
     }
 
 
