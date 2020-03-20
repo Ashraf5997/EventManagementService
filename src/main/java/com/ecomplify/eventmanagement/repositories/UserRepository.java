@@ -7,6 +7,6 @@ import com.ecomplify.eventmanagement.models.entities.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 	
-	
+        public User findByEmailid(String emailid);	
 
 }

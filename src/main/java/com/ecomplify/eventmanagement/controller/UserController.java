@@ -6,16 +6,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ecomplify.eventmanagement.models.entities.User;
+import com.ecomplify.eventmanagement.services.ApplicationBusinessService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
 public class UserController {
+
+
+	@Autowired
+	ApplicationBusinessService applicationbusinesssrvc;
 
 	@GetMapping("/userauthentication/{emailId}/{password}")
 	public ResponseEntity<User> UserAuthentication(@PathVariable String emailId,
 			@PathVariable String password ){
 		
-		System.out.println("Just for the testing purpose ");
-		
+	applicationbusinesssrvc.checkAuthentication(emailId,password);
+
 		return null;
 		
 	}
