@@ -9,6 +9,7 @@ import com.ecomplify.eventmanagement.models.entities.UserIdentifier;
 @Repository
 public interface UserIdentifierRepository extends JpaRepository<UserIdentifier, Long> {
 	
+	UserIdentifier findByUserId(Long userId);
 	
 
 }

@@ -17,14 +17,23 @@ public class ApplicationBusinessService {
 
 
     public User checkAuthentication(String username,String password) throws Exception{
-              User usr = null;
-
-	      usr = userRepo.findByEmailid(username);
-
-              System.out.println("gggg");
+               User usr = null;
+    	  UserIdentifier usrIdentifier = null;
+    	  
+	      usr = userRepo.findByEmail(username);
 	      
-  
-		return null;
+	      if(usr!=null) {
+	    	  usrIdentifier = userIdentifierRepo.findByUserId(usr.getAppuserid());
+	    	  
+	    	  if(!usrIdentifier.getUserIdentifierText().equals(password)) {
+	    		  throw new BusinessException("Passowrd is Wrong");
+	    	  }
+	    	  
+	      }else {
+	    	  throw new BusinessException("User Id is not available");
+	      }   
+
+      return usr;
 
     
     }

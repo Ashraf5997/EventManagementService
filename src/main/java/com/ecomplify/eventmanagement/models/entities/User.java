@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "app_user")
-@Where(clause="DELETED='N'")
+//@Where(clause="DELETED='N'")
 public class User {
 	
 	@Id
@@ -17,15 +17,11 @@ public class User {
 	@Column(name = "full_name")
 	private String fullname;
 	@Column(name = "email_id")
-	private String emailid;
-	@Column(name = "emp_id_number")
-	private Long empid;
+	private String email;	
 	@Column(name = "date_of_birth")
 	private LocalDateTime dateofbirth;
 	@Column(name = "contact_number")
 	private Long contactnumber;
-	@Column(name = "experience")
-	private String experience;
 	@Column(name = "gender")
 	private String gender;
 	@Column(name = "address")
@@ -40,6 +36,13 @@ public class User {
 	private LocalDateTime modifiedon;
 	@Column(name = "deleted")
 	private String deleted;
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public Long getAppuserid() {
 		return appuserid;
 	}
@@ -52,18 +55,7 @@ public class User {
 	public void setFullname(String fullname) {
 		this.fullname = fullname;
 	}
-	public String getEmailid() {
-		return emailid;
-	}
-	public void setEmailid(String emailid) {
-		this.emailid = emailid;
-	}
-	public Long getEmpid() {
-		return empid;
-	}
-	public void setEmpid(Long empid) {
-		this.empid = empid;
-	}
+	
 	public LocalDateTime getDateofbirth() {
 		return dateofbirth;
 	}
@@ -75,12 +67,6 @@ public class User {
 	}
 	public void setContactnumber(Long contactnumber) {
 		this.contactnumber = contactnumber;
-	}
-	public String getExperience() {
-		return experience;
-	}
-	public void setExperience(String experience) {
-		this.experience = experience;
 	}
 	public String getGender() {
 		return gender;
@@ -128,3 +114,4 @@ public class User {
 	
 
 }
+	
