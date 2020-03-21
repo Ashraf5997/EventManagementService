@@ -29,7 +29,7 @@ public class UserController {
 
 		
 	} catch (BusinessException e) {		
-		//System.out.println(e.getExceptionMessage());
+		System.out.println(e.getExceptionMessage());
 		throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, e.getExceptionMessage());
 	}
 	}
