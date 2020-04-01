@@ -1,6 +1,8 @@
 package com.ecomplify.eventmanagement.models.entities;
 
 import org.hibernate.annotations.Where;
+
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -36,6 +38,10 @@ public class User {
 	private LocalDateTime modifiedon;
 	@Column(name = "deleted")
 	private String deleted;
+	
+	@Transient
+	private String accesstext;
+	
 	
 	public String getEmail() {
 		return email;
@@ -109,6 +115,12 @@ public class User {
 	}
 	public void setDeleted(String deleted) {
 		this.deleted = deleted;
+	}
+	public String getAccesstext() {
+		return accesstext;
+	}
+	public void setAccesstext(String accesstext) {
+		this.accesstext = accesstext;
 	}
 
 	
